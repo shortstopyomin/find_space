@@ -21,7 +21,9 @@ Space _$SpaceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Space {
   String get name => throw _privateConstructorUsedError;
-  String get group => throw _privateConstructorUsedError;
+  int get group => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   @Uint8ListConverter()
   Uint8List? get image => throw _privateConstructorUsedError;
@@ -38,7 +40,9 @@ abstract class $SpaceCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      String group,
+      int group,
+      String description,
+      double rating,
       int? id,
       @Uint8ListConverter() Uint8List? image});
 }
@@ -58,6 +62,8 @@ class _$SpaceCopyWithImpl<$Res, $Val extends Space>
   $Res call({
     Object? name = null,
     Object? group = null,
+    Object? description = null,
+    Object? rating = null,
     Object? id = freezed,
     Object? image = freezed,
   }) {
@@ -69,7 +75,15 @@ class _$SpaceCopyWithImpl<$Res, $Val extends Space>
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
+              as int,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -91,7 +105,9 @@ abstract class _$$SpaceImplCopyWith<$Res> implements $SpaceCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      String group,
+      int group,
+      String description,
+      double rating,
       int? id,
       @Uint8ListConverter() Uint8List? image});
 }
@@ -109,6 +125,8 @@ class __$$SpaceImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? group = null,
+    Object? description = null,
+    Object? rating = null,
     Object? id = freezed,
     Object? image = freezed,
   }) {
@@ -120,7 +138,15 @@ class __$$SpaceImplCopyWithImpl<$Res>
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
+              as int,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
+      rating: null == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -139,6 +165,8 @@ class _$SpaceImpl implements _Space {
   const _$SpaceImpl(
       {required this.name,
       required this.group,
+      required this.description,
+      required this.rating,
       this.id,
       @Uint8ListConverter() this.image});
 
@@ -148,7 +176,11 @@ class _$SpaceImpl implements _Space {
   @override
   final String name;
   @override
-  final String group;
+  final int group;
+  @override
+  final String description;
+  @override
+  final double rating;
   @override
   final int? id;
   @override
@@ -157,7 +189,7 @@ class _$SpaceImpl implements _Space {
 
   @override
   String toString() {
-    return 'Space(name: $name, group: $group, id: $id, image: $image)';
+    return 'Space(name: $name, group: $group, description: $description, rating: $rating, id: $id, image: $image)';
   }
 
   @override
@@ -167,14 +199,17 @@ class _$SpaceImpl implements _Space {
             other is _$SpaceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.group, group) || other.group == group) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other.image, image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, name, group, id, const DeepCollectionEquality().hash(image));
+  int get hashCode => Object.hash(runtimeType, name, group, description, rating,
+      id, const DeepCollectionEquality().hash(image));
 
   @JsonKey(ignore: true)
   @override
@@ -193,7 +228,9 @@ class _$SpaceImpl implements _Space {
 abstract class _Space implements Space {
   const factory _Space(
       {required final String name,
-      required final String group,
+      required final int group,
+      required final String description,
+      required final double rating,
       final int? id,
       @Uint8ListConverter() final Uint8List? image}) = _$SpaceImpl;
 
@@ -202,7 +239,11 @@ abstract class _Space implements Space {
   @override
   String get name;
   @override
-  String get group;
+  int get group;
+  @override
+  String get description;
+  @override
+  double get rating;
   @override
   int? get id;
   @override

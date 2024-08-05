@@ -20,9 +20,9 @@ mixin _$SpacesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
+    required TResult Function(bool isLoading, List<Group>? groups,
+            List<Space>? spaces, int? selectedGroupId)
+        groupsSpacesLoaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,9 +30,9 @@ mixin _$SpacesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
+    TResult? Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,9 +40,9 @@ mixin _$SpacesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
+    TResult Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -51,9 +51,7 @@ mixin _$SpacesState {
   TResult map<TResult extends Object?>({
     required TResult Function(SpacesInitial value) initial,
     required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
+    required TResult Function(GroupSpacesLoaded value) groupsSpacesLoaded,
     required TResult Function(SpacesError value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,9 +59,7 @@ mixin _$SpacesState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SpacesInitial value)? initial,
     TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
+    TResult? Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult? Function(SpacesError value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -71,9 +67,7 @@ mixin _$SpacesState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SpacesInitial value)? initial,
     TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
+    TResult Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult Function(SpacesError value)? error,
     required TResult orElse(),
   }) =>
@@ -138,9 +132,9 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
+    required TResult Function(bool isLoading, List<Group>? groups,
+            List<Space>? spaces, int? selectedGroupId)
+        groupsSpacesLoaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -151,9 +145,9 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
+    TResult? Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -164,9 +158,9 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
+    TResult Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -181,9 +175,7 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(SpacesInitial value) initial,
     required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
+    required TResult Function(GroupSpacesLoaded value) groupsSpacesLoaded,
     required TResult Function(SpacesError value) error,
   }) {
     return initial(this);
@@ -194,9 +186,7 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SpacesInitial value)? initial,
     TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
+    TResult? Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult? Function(SpacesError value)? error,
   }) {
     return initial?.call(this);
@@ -207,9 +197,7 @@ class _$SpacesInitialImpl implements SpacesInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SpacesInitial value)? initial,
     TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
+    TResult Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult Function(SpacesError value)? error,
     required TResult orElse(),
   }) {
@@ -264,9 +252,9 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
+    required TResult Function(bool isLoading, List<Group>? groups,
+            List<Space>? spaces, int? selectedGroupId)
+        groupsSpacesLoaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -277,9 +265,9 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
+    TResult? Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -290,9 +278,9 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
+    TResult Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -307,9 +295,7 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(SpacesInitial value) initial,
     required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
+    required TResult Function(GroupSpacesLoaded value) groupsSpacesLoaded,
     required TResult Function(SpacesError value) error,
   }) {
     return loading(this);
@@ -320,9 +306,7 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SpacesInitial value)? initial,
     TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
+    TResult? Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult? Function(SpacesError value)? error,
   }) {
     return loading?.call(this);
@@ -333,9 +317,7 @@ class _$SpacesLoadingImpl implements SpacesLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SpacesInitial value)? initial,
     TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
+    TResult Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult Function(SpacesError value)? error,
     required TResult orElse(),
   }) {
@@ -351,231 +333,123 @@ abstract class SpacesLoading implements SpacesState {
 }
 
 /// @nodoc
-abstract class _$$GroupLoadedImplCopyWith<$Res> {
-  factory _$$GroupLoadedImplCopyWith(
-          _$GroupLoadedImpl value, $Res Function(_$GroupLoadedImpl) then) =
-      __$$GroupLoadedImplCopyWithImpl<$Res>;
+abstract class _$$GroupSpacesLoadedImplCopyWith<$Res> {
+  factory _$$GroupSpacesLoadedImplCopyWith(_$GroupSpacesLoadedImpl value,
+          $Res Function(_$GroupSpacesLoadedImpl) then) =
+      __$$GroupSpacesLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Group> groups});
+  $Res call(
+      {bool isLoading,
+      List<Group>? groups,
+      List<Space>? spaces,
+      int? selectedGroupId});
 }
 
 /// @nodoc
-class __$$GroupLoadedImplCopyWithImpl<$Res>
-    extends _$SpacesStateCopyWithImpl<$Res, _$GroupLoadedImpl>
-    implements _$$GroupLoadedImplCopyWith<$Res> {
-  __$$GroupLoadedImplCopyWithImpl(
-      _$GroupLoadedImpl _value, $Res Function(_$GroupLoadedImpl) _then)
+class __$$GroupSpacesLoadedImplCopyWithImpl<$Res>
+    extends _$SpacesStateCopyWithImpl<$Res, _$GroupSpacesLoadedImpl>
+    implements _$$GroupSpacesLoadedImplCopyWith<$Res> {
+  __$$GroupSpacesLoadedImplCopyWithImpl(_$GroupSpacesLoadedImpl _value,
+      $Res Function(_$GroupSpacesLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? groups = null,
+    Object? isLoading = null,
+    Object? groups = freezed,
+    Object? spaces = freezed,
+    Object? selectedGroupId = freezed,
   }) {
-    return _then(_$GroupLoadedImpl(
-      groups: null == groups
+    return _then(_$GroupSpacesLoadedImpl(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      groups: freezed == groups
           ? _value._groups
           : groups // ignore: cast_nullable_to_non_nullable
-              as List<Group>,
+              as List<Group>?,
+      spaces: freezed == spaces
+          ? _value._spaces
+          : spaces // ignore: cast_nullable_to_non_nullable
+              as List<Space>?,
+      selectedGroupId: freezed == selectedGroupId
+          ? _value.selectedGroupId
+          : selectedGroupId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GroupLoadedImpl implements GroupLoaded {
-  const _$GroupLoadedImpl({required final List<Group> groups})
-      : _groups = groups;
+class _$GroupSpacesLoadedImpl implements GroupSpacesLoaded {
+  const _$GroupSpacesLoadedImpl(
+      {this.isLoading = false,
+      final List<Group>? groups,
+      final List<Space>? spaces,
+      this.selectedGroupId})
+      : _groups = groups,
+        _spaces = spaces;
 
-  final List<Group> _groups;
   @override
-  List<Group> get groups {
+  @JsonKey()
+  final bool isLoading;
+  final List<Group>? _groups;
+  @override
+  List<Group>? get groups {
+    final value = _groups;
+    if (value == null) return null;
     if (_groups is EqualUnmodifiableListView) return _groups;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_groups);
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Space>? _spaces;
+  @override
+  List<Space>? get spaces {
+    final value = _spaces;
+    if (value == null) return null;
+    if (_spaces is EqualUnmodifiableListView) return _spaces;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   @override
+  final int? selectedGroupId;
+
+  @override
   String toString() {
-    return 'SpacesState.groupLoaded(groups: $groups)';
+    return 'SpacesState.groupsSpacesLoaded(isLoading: $isLoading, groups: $groups, spaces: $spaces, selectedGroupId: $selectedGroupId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GroupLoadedImpl &&
-            const DeepCollectionEquality().equals(other._groups, _groups));
+            other is _$GroupSpacesLoadedImpl &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            const DeepCollectionEquality().equals(other._groups, _groups) &&
+            const DeepCollectionEquality().equals(other._spaces, _spaces) &&
+            (identical(other.selectedGroupId, selectedGroupId) ||
+                other.selectedGroupId == selectedGroupId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_groups));
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      const DeepCollectionEquality().hash(_groups),
+      const DeepCollectionEquality().hash(_spaces),
+      selectedGroupId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GroupLoadedImplCopyWith<_$GroupLoadedImpl> get copyWith =>
-      __$$GroupLoadedImplCopyWithImpl<_$GroupLoadedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
-    required TResult Function(String message) error,
-  }) {
-    return groupLoaded(groups);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
-    TResult? Function(String message)? error,
-  }) {
-    return groupLoaded?.call(groups);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (groupLoaded != null) {
-      return groupLoaded(groups);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SpacesInitial value) initial,
-    required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
-    required TResult Function(SpacesError value) error,
-  }) {
-    return groupLoaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SpacesInitial value)? initial,
-    TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
-    TResult? Function(SpacesError value)? error,
-  }) {
-    return groupLoaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SpacesInitial value)? initial,
-    TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
-    TResult Function(SpacesError value)? error,
-    required TResult orElse(),
-  }) {
-    if (groupLoaded != null) {
-      return groupLoaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GroupLoaded implements SpacesState {
-  const factory GroupLoaded({required final List<Group> groups}) =
-      _$GroupLoadedImpl;
-
-  List<Group> get groups;
-  @JsonKey(ignore: true)
-  _$$GroupLoadedImplCopyWith<_$GroupLoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SpaceGroupSelectedImplCopyWith<$Res> {
-  factory _$$SpaceGroupSelectedImplCopyWith(_$SpaceGroupSelectedImpl value,
-          $Res Function(_$SpaceGroupSelectedImpl) then) =
-      __$$SpaceGroupSelectedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int selectedIndex});
-}
-
-/// @nodoc
-class __$$SpaceGroupSelectedImplCopyWithImpl<$Res>
-    extends _$SpacesStateCopyWithImpl<$Res, _$SpaceGroupSelectedImpl>
-    implements _$$SpaceGroupSelectedImplCopyWith<$Res> {
-  __$$SpaceGroupSelectedImplCopyWithImpl(_$SpaceGroupSelectedImpl _value,
-      $Res Function(_$SpaceGroupSelectedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? selectedIndex = null,
-  }) {
-    return _then(_$SpaceGroupSelectedImpl(
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
-  const _$SpaceGroupSelectedImpl({required this.selectedIndex});
-
-  @override
-  final int selectedIndex;
-
-  @override
-  String toString() {
-    return 'SpacesState.groupSelected(selectedIndex: $selectedIndex)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SpaceGroupSelectedImpl &&
-            (identical(other.selectedIndex, selectedIndex) ||
-                other.selectedIndex == selectedIndex));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, selectedIndex);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SpaceGroupSelectedImplCopyWith<_$SpaceGroupSelectedImpl> get copyWith =>
-      __$$SpaceGroupSelectedImplCopyWithImpl<_$SpaceGroupSelectedImpl>(
+  _$$GroupSpacesLoadedImplCopyWith<_$GroupSpacesLoadedImpl> get copyWith =>
+      __$$GroupSpacesLoadedImplCopyWithImpl<_$GroupSpacesLoadedImpl>(
           this, _$identity);
 
   @override
@@ -583,12 +457,12 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
+    required TResult Function(bool isLoading, List<Group>? groups,
+            List<Space>? spaces, int? selectedGroupId)
+        groupsSpacesLoaded,
     required TResult Function(String message) error,
   }) {
-    return groupSelected(selectedIndex);
+    return groupsSpacesLoaded(isLoading, groups, spaces, selectedGroupId);
   }
 
   @override
@@ -596,12 +470,12 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
+    TResult? Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult? Function(String message)? error,
   }) {
-    return groupSelected?.call(selectedIndex);
+    return groupsSpacesLoaded?.call(isLoading, groups, spaces, selectedGroupId);
   }
 
   @override
@@ -609,14 +483,14 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
+    TResult Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (groupSelected != null) {
-      return groupSelected(selectedIndex);
+    if (groupsSpacesLoaded != null) {
+      return groupsSpacesLoaded(isLoading, groups, spaces, selectedGroupId);
     }
     return orElse();
   }
@@ -626,12 +500,10 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult map<TResult extends Object?>({
     required TResult Function(SpacesInitial value) initial,
     required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
+    required TResult Function(GroupSpacesLoaded value) groupsSpacesLoaded,
     required TResult Function(SpacesError value) error,
   }) {
-    return groupSelected(this);
+    return groupsSpacesLoaded(this);
   }
 
   @override
@@ -639,12 +511,10 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SpacesInitial value)? initial,
     TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
+    TResult? Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult? Function(SpacesError value)? error,
   }) {
-    return groupSelected?.call(this);
+    return groupsSpacesLoaded?.call(this);
   }
 
   @override
@@ -652,189 +522,30 @@ class _$SpaceGroupSelectedImpl implements SpaceGroupSelected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SpacesInitial value)? initial,
     TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
+    TResult Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult Function(SpacesError value)? error,
     required TResult orElse(),
   }) {
-    if (groupSelected != null) {
-      return groupSelected(this);
+    if (groupsSpacesLoaded != null) {
+      return groupsSpacesLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class SpaceGroupSelected implements SpacesState {
-  const factory SpaceGroupSelected({required final int selectedIndex}) =
-      _$SpaceGroupSelectedImpl;
+abstract class GroupSpacesLoaded implements SpacesState {
+  const factory GroupSpacesLoaded(
+      {final bool isLoading,
+      final List<Group>? groups,
+      final List<Space>? spaces,
+      final int? selectedGroupId}) = _$GroupSpacesLoadedImpl;
 
-  int get selectedIndex;
+  bool get isLoading;
+  List<Group>? get groups;
+  List<Space>? get spaces;
+  int? get selectedGroupId;
   @JsonKey(ignore: true)
-  _$$SpaceGroupSelectedImplCopyWith<_$SpaceGroupSelectedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SpacesLoadedImplCopyWith<$Res> {
-  factory _$$SpacesLoadedImplCopyWith(
-          _$SpacesLoadedImpl value, $Res Function(_$SpacesLoadedImpl) then) =
-      __$$SpacesLoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<Space> spaces});
-}
-
-/// @nodoc
-class __$$SpacesLoadedImplCopyWithImpl<$Res>
-    extends _$SpacesStateCopyWithImpl<$Res, _$SpacesLoadedImpl>
-    implements _$$SpacesLoadedImplCopyWith<$Res> {
-  __$$SpacesLoadedImplCopyWithImpl(
-      _$SpacesLoadedImpl _value, $Res Function(_$SpacesLoadedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? spaces = null,
-  }) {
-    return _then(_$SpacesLoadedImpl(
-      null == spaces
-          ? _value._spaces
-          : spaces // ignore: cast_nullable_to_non_nullable
-              as List<Space>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SpacesLoadedImpl implements SpacesLoaded {
-  const _$SpacesLoadedImpl(final List<Space> spaces) : _spaces = spaces;
-
-  final List<Space> _spaces;
-  @override
-  List<Space> get spaces {
-    if (_spaces is EqualUnmodifiableListView) return _spaces;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_spaces);
-  }
-
-  @override
-  String toString() {
-    return 'SpacesState.spacesLoaded(spaces: $spaces)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SpacesLoadedImpl &&
-            const DeepCollectionEquality().equals(other._spaces, _spaces));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_spaces));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SpacesLoadedImplCopyWith<_$SpacesLoadedImpl> get copyWith =>
-      __$$SpacesLoadedImplCopyWithImpl<_$SpacesLoadedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
-    required TResult Function(String message) error,
-  }) {
-    return spacesLoaded(spaces);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
-    TResult? Function(String message)? error,
-  }) {
-    return spacesLoaded?.call(spaces);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (spacesLoaded != null) {
-      return spacesLoaded(spaces);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SpacesInitial value) initial,
-    required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
-    required TResult Function(SpacesError value) error,
-  }) {
-    return spacesLoaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SpacesInitial value)? initial,
-    TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
-    TResult? Function(SpacesError value)? error,
-  }) {
-    return spacesLoaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SpacesInitial value)? initial,
-    TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
-    TResult Function(SpacesError value)? error,
-    required TResult orElse(),
-  }) {
-    if (spacesLoaded != null) {
-      return spacesLoaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SpacesLoaded implements SpacesState {
-  const factory SpacesLoaded(final List<Space> spaces) = _$SpacesLoadedImpl;
-
-  List<Space> get spaces;
-  @JsonKey(ignore: true)
-  _$$SpacesLoadedImplCopyWith<_$SpacesLoadedImpl> get copyWith =>
+  _$$GroupSpacesLoadedImplCopyWith<_$GroupSpacesLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -904,9 +615,9 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Group> groups) groupLoaded,
-    required TResult Function(int selectedIndex) groupSelected,
-    required TResult Function(List<Space> spaces) spacesLoaded,
+    required TResult Function(bool isLoading, List<Group>? groups,
+            List<Space>? spaces, int? selectedGroupId)
+        groupsSpacesLoaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -917,9 +628,9 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Group> groups)? groupLoaded,
-    TResult? Function(int selectedIndex)? groupSelected,
-    TResult? Function(List<Space> spaces)? spacesLoaded,
+    TResult? Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -930,9 +641,9 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Group> groups)? groupLoaded,
-    TResult Function(int selectedIndex)? groupSelected,
-    TResult Function(List<Space> spaces)? spacesLoaded,
+    TResult Function(bool isLoading, List<Group>? groups, List<Space>? spaces,
+            int? selectedGroupId)?
+        groupsSpacesLoaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -947,9 +658,7 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult map<TResult extends Object?>({
     required TResult Function(SpacesInitial value) initial,
     required TResult Function(SpacesLoading value) loading,
-    required TResult Function(GroupLoaded value) groupLoaded,
-    required TResult Function(SpaceGroupSelected value) groupSelected,
-    required TResult Function(SpacesLoaded value) spacesLoaded,
+    required TResult Function(GroupSpacesLoaded value) groupsSpacesLoaded,
     required TResult Function(SpacesError value) error,
   }) {
     return error(this);
@@ -960,9 +669,7 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SpacesInitial value)? initial,
     TResult? Function(SpacesLoading value)? loading,
-    TResult? Function(GroupLoaded value)? groupLoaded,
-    TResult? Function(SpaceGroupSelected value)? groupSelected,
-    TResult? Function(SpacesLoaded value)? spacesLoaded,
+    TResult? Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult? Function(SpacesError value)? error,
   }) {
     return error?.call(this);
@@ -973,9 +680,7 @@ class _$SpacesErrorImpl implements SpacesError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SpacesInitial value)? initial,
     TResult Function(SpacesLoading value)? loading,
-    TResult Function(GroupLoaded value)? groupLoaded,
-    TResult Function(SpaceGroupSelected value)? groupSelected,
-    TResult Function(SpacesLoaded value)? spacesLoaded,
+    TResult Function(GroupSpacesLoaded value)? groupsSpacesLoaded,
     TResult Function(SpacesError value)? error,
     required TResult orElse(),
   }) {

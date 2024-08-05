@@ -9,7 +9,9 @@ part 'space.g.dart';
 class Space with _$Space {
   const factory Space({
     required String name,
-    required String group,
+    required int group,
+    required String description,
+    required double rating,
     int? id,
     @Uint8ListConverter()
     Uint8List? image,

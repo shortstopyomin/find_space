@@ -4,9 +4,6 @@ import 'package:find_space/space/domain/entity/group.dart';
 
 part 'group.dao.g.dart';
 
-// the _TodosDaoMixin will be created by drift. It contains all the necessary
-// fields for the tables. The <MyDatabase> type annotation is the database class
-// that should use this dao.
 @DriftAccessor(tables: [GroupTable])
 class GroupDao extends DatabaseAccessor<SpaceDatabase> with _$GroupDaoMixin {
   // this constructor is required so that the main database can create an instance

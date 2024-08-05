@@ -15,13 +15,13 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
   final SpaceDatabase _spaceDatabase;
 
   @override
-  Future<List<Space?>> getDramas() async {
-    return _spaceDatabase.spaceDao.getSpaces();
+  Future<List<Group>> getGroups() {
+    return _spaceDatabase.groupDao.allGroups;
   }
 
   @override
-  Future<List<String?>> getGroups() {
-    return _spaceDatabase.spaceDao.getGroups();
+  Future<List<Space>> getSpaces() {
+    return _spaceDatabase.spaceDao.getSpaces();
   }
 
   @override
@@ -35,6 +35,20 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
   }
 
   @override
+  Future<List<Space>> fetchSpacesInGroup({
+    int? groupId,
+  }) {
+    return _spaceDatabase.spaceDao.spacesInGroup(groupId);
+  }
+
+  @override
+  Stream<List<Space>> watchSpacesInGroup({
+      int? groupId,
+  }) {
+    return _spaceDatabase.spaceDao.watchSpacesInGroup(groupId);
+  }
+
+  @override
   Future<int> addGroup({
     required Group group,
   }) {
@@ -43,27 +57,31 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
   }
 
   @override
-  Future<void> addSpace({
+  Future<int> addSpace({
     required Space space,
   }) {
-    debugPrint('SpaceRepositoryImpl, space.name = ${space.name}, space.category = ${space.group}, drama.image = ${space.image},');
+    debugPrint('SpaceRepositoryImpl, space.name = ${space.name}, space.group = ${space.group}, drama.image = ${space.image},');
+    return _spaceDatabase.spaceDao.insertSpace(space: space);
+  }
+
+  @override
+  Stream<Space?> watchSpace({required int id}) {
+    return _spaceDatabase.spaceDao.watchSpace(id);
+  }
+
+  @override
+  Future<int> updateSpace({
+    required Space space,
+  }) {
     return _spaceDatabase.spaceDao.upsertSpace(space: space);
   }
 
   @override
-  Future<void> updateDrama(Space space) {
-    return _spaceDatabase.spaceDao.upsertSpace(space: space);
-  }
-
-  @override
-  Future<void> deleteDrama(int id) {
+  Future<void> deleteSpace({required int id}) {
     debugPrint('SpaceRepositoryImpl, deleteDrama() , id = $id');
     return _spaceDatabase.spaceDao.deleteSpace(id);
   }
 
   @override
-  FutureOr onDispose() {
-    // TODO: implement onDispose
-    throw UnimplementedError();
-  }
+  FutureOr onDispose() {}
 }

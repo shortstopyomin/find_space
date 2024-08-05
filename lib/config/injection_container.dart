@@ -4,8 +4,11 @@ import 'package:find_space/space/data/space_repository_impl.dart';
 import 'package:find_space/space/domain/repository/space_repository.dart';
 import 'package:find_space/space/domain/usecase/add_group_use_case.dart';
 import 'package:find_space/space/domain/usecase/add_space_use_case.dart';
+import 'package:find_space/space/domain/usecase/delete_space_use_case.dart';
+import 'package:find_space/space/domain/usecase/space_detail_use_case.dart';
 import 'package:find_space/space/domain/usecase/space_list_use_case.dart';
 import 'package:find_space/space/domain/usecase/watch_groups_use_case.dart';
+import 'package:find_space/space/domain/usecase/watch_spaces_use_case.dart';
 import 'package:find_space/space/permission/permission_handler_permission_service.dart';
 import 'package:find_space/space/permission/permission_service.dart';
 import 'package:get_it/get_it.dart';
@@ -33,8 +36,11 @@ Future<void> _registerRepositories() async {
 }
 
 Future<void> _registerUseCases() async {
-  getIt.registerFactory(() => GetSpacesUseCase());
+  getIt.registerFactory(() => SpaceListUseCase());
   getIt.registerFactory(() => AddSpaceUseCase());
   getIt.registerFactory(() => AddGroupUseCase());
   getIt.registerFactory(() => WatchGroupsUseCase());
+  getIt.registerFactory(() => WatchSpacesUseCase());
+  getIt.registerFactory(() => SpaceDetailUseCase());
+  getIt.registerFactory(() => DeleteSpaceUseCase());
 }

@@ -53,12 +53,6 @@ class SpaceListViewModel {
     await _selectedGroupIndexSubject.close();
   }
 
-  Future<List<String?>> getGroups() async {
-    final GetSpacesUseCase getSpacesUseCase = getIt();
-    final allCategories = await getSpacesUseCase.getGroups();
-    return allCategories;
-  }
-
   Stream<List<Group>> watchGroups() {
     final WatchGroupsUseCase watchGroupUseCase = getIt();
 
@@ -66,7 +60,7 @@ class SpaceListViewModel {
   }
 
   Stream<List<Space>> watchSpaces() {
-    final GetSpacesUseCase getSpacesUseCase = getIt();
+    final SpaceListUseCase getSpacesUseCase = getIt();
     final allDramas = getSpacesUseCase.watchSpaces()
       ..listen((dramas) {
       });

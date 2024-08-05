@@ -21,8 +21,10 @@ part 'space_database.g.dart';
 @UseRowClass(Space)
 class SpaceTable extends Table {
   IntColumn get id => integer().autoIncrement()();
-  TextColumn get name => text()();
-  TextColumn get group => text()();
+  TextColumn get name => text().withLength(min: 1,)();
+  IntColumn get group => integer().references(GroupTable, #id)();
+  TextColumn get description => text()();
+  RealColumn get rating => real().withDefault(const Constant(0.0))();
   BlobColumn get image => blob().nullable()();
 }
 

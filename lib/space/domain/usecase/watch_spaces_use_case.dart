@@ -1,19 +1,19 @@
 import 'package:find_space/config/injection_container.dart';
+import 'package:find_space/space/domain/entity/group.dart';
 import 'package:find_space/space/domain/entity/space.dart';
 import 'package:find_space/space/domain/repository/space_repository.dart';
 import 'package:find_space/space/domain/use_case.dart';
 
-class AddSpaceUseCase extends UseCase<Future<int>, Space> {
+class WatchSpacesUseCase
+    extends VoidParamUseCase<Stream<List<Space>>> {
   final SpaceRepository repository = getIt();
 
   @override
-  Future<int> call(Space params) async {
-    return repository.addSpace(space: params);
+  Stream<List<Space>> call() {
+    return repository.watchSpaces();
   }
 
-  Future<int> updateSpace({
-    required Space space,
-  }) async {
-    return repository.updateSpace(space: space);
+  Stream<List<Space>> watchSpacesInGroup(int? groupId) {
+    return repository.watchSpacesInGroup(groupId: groupId);
   }
 }
