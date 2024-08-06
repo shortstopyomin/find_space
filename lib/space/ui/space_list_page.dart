@@ -41,7 +41,6 @@ class _SpacesViewState extends State<SpacesView> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('build _SpacesViewState');
     return _SpaceListBody();
   }
 }
@@ -59,10 +58,6 @@ class _SpaceListBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SpacesCubit, SpacesState>(
       listener: (context, state) {
-        if (state is GroupSpacesLoaded) {
-          debugPrint(
-              'listener yoyoyo state.selectedGroupId = ${state.selectedGroupId}');
-        }
       },
       builder: (context, state) {
         if (state is GroupSpacesLoaded) {
@@ -134,18 +129,18 @@ class _SpaceListBody extends StatelessWidget {
             body: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (state.groups != null && state.groups!.isEmpty) ...[
+                if (state.groups == null || state.groups!.isEmpty) ...[
                   Padding(
                     padding: const EdgeInsets.only(left: 16, right: 4),
                     child: Wrap(
                       spacing: 8,
                       runSpacing: 4,
                       children: List<Widget>.generate(2, (int groupIndex) {
-                        debugPrint('00 groupIndex = $groupIndex');
                         return (groupIndex == 1)
                             ? IconButton(
                                 iconSize: isTablet ? 40 : 24,
                                 onPressed: () {
+                                  groupNameEditController.clear();
                                   showTwoButtonContentAlertDialog(
                                     dialogBackgroundColor: NVColors.white,
                                     context: context,
@@ -234,12 +229,10 @@ class _SpaceListBody extends StatelessWidget {
                                             groupName:
                                                 groupNameEditController.text,
                                           );
-                                      debugPrint('onPositivePressedCallback');
                                       groupNameEditController.clear();
                                       context.pop();
                                     },
                                     onNegativePressedCallback: () {
-                                      debugPrint('onNegativePressedCallback');
                                       context.pop();
                                     },
                                   );
@@ -635,6 +628,34 @@ class _SpaceListBody extends StatelessWidget {
                           );
                         },
                       ),
+                    ),
+                  ),
+                ],
+                if (state.spaces == null || state.spaces!.isEmpty) ...[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Center(
+                          child: Text(
+                            'Start to add a new space!',
+                            style: GoogleFonts.notoSans(
+                              textStyle: const TextStyle(
+                                color: NVColors.gray93,
+                                fontWeight: FontWeight.w700,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 180,
+                        ),
+                      ],
                     ),
                   ),
                 ],

@@ -32,7 +32,6 @@ class PermissionHandlerPermissionService implements PermissionService {
           context.pop();
         },
         onNegativePressedCallback: () {
-          debugPrint('onNegativePressedCallback');
           context.pop();
         },
       );

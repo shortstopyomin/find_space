@@ -33,7 +33,6 @@ class EditSpaceCubit extends Cubit<EditSpaceState> {
   Future<void> updateSpace({
     required Space space,
   }) async {
-    debugPrint('1. updateSpace,  spaceName = $space,');
     final AddSpaceUseCase addSpaceUseCase = getIt();
     // emit(const LoadingState());
     await state.maybeWhen(
@@ -41,20 +40,16 @@ class EditSpaceCubit extends Cubit<EditSpaceState> {
           emit((state as AttributesSelected).copyWith(
             isLoading: true,
           ),);
-          debugPrint('updateSpace, group = $group, ratingState = $ratingState, isImageExisted = $isImageExisted, imagePath = $imagePath');
           if (isImageExisted == false && (imagePath == null || imagePath.isEmpty)) {
-            debugPrint('111');
             await addSpaceUseCase.updateSpace(space: space.copyWith(image: null),);
             return;
           }
           if (imagePath != null && imagePath.isNotEmpty) {
-            debugPrint('222');
             final file = File(imagePath);
             final spaceImage = await file.readAsBytes();
             await addSpaceUseCase.updateSpace(space: space.copyWith(image: spaceImage),);
             return;
           }
-          debugPrint('333');
           await addSpaceUseCase.updateSpace(space: space);
         },
         orElse: () {},
@@ -77,8 +72,6 @@ class EditSpaceCubit extends Cubit<EditSpaceState> {
         final file = await pickImage(imageSource);
 
         if (file != null) {
-          debugPrint('_requestImageImageSource file path = ${file.path}');
-          debugPrint('file absolute = ${file.absolute}');
 
           onSpaceImagePicked(spaceImagePath: file.path);
         }
@@ -145,7 +138,6 @@ class EditSpaceCubit extends Cubit<EditSpaceState> {
   }
 
   void deletePickedImage() {
-    debugPrint('deletePickedImage');
     emit((state as AttributesSelected).copyWith(
       isImageExisted: false,
       imagePath: '',

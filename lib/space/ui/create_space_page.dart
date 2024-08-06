@@ -65,9 +65,6 @@ class CreateSpaceView extends StatelessWidget {
           },
           orElse: () => (null, null, null),
         );
-        debugPrint('CreateSpaceView build() spaceImage = $selectedImage');
-        debugPrint('CreateSpaceView build() selectedGroup = $selectedGroup');
-        debugPrint('CreateSpaceView build() rating = $rating');
         return switch(state) {
           _ => Scaffold(
             backgroundColor: NVColors.grayF9,

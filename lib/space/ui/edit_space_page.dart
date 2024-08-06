@@ -73,7 +73,6 @@ class EditSpaceView extends StatelessWidget {
       builder: (context, state) {
         final (isLoading, selectedGroup, space, rating, isImageExisted, selectedImage, spaceUpdated) = state.maybeWhen(
           attributesSelected: (isLoading, group, space, rating, isImageExisted, imagePath, spaceUpdated) {
-            debugPrint('EditSpaceView build() rating = $rating');
             return (isLoading, group, space, rating, isImageExisted ,imagePath, spaceUpdated);
           },
           orElse: () => (null, null, null, null, null, null, null),
@@ -298,9 +297,6 @@ class EditSpaceView extends StatelessWidget {
                             dropdownColor: Colors.white,
                             value: selectedGroup,
                             onChanged: (Group? newValue) {
-                              debugPrint(
-                                'onChanged, newValue = $newValue',
-                              );
                               if (newValue == defaultSelection) {
                                 return;
                               } else {
@@ -429,7 +425,6 @@ class EditSpaceView extends StatelessWidget {
                           },
                           initialRating: rating ?? 0,
                           onRatingUpdate: (newRating) {
-                            debugPrint('onRatingUpdate newRating = $newRating');
                             context
                                 .read<EditSpaceCubit>()
                                 .onRatingUpdated(rating: newRating);

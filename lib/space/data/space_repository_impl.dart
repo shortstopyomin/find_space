@@ -52,7 +52,6 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
   Future<int> addGroup({
     required Group group,
   }) {
-    debugPrint('SpaceRepositoryImpl, group.name = ${group.name}');
     return _spaceDatabase.groupDao.addGroup(group);
   }
 
@@ -60,7 +59,6 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
   Future<int> addSpace({
     required Space space,
   }) {
-    debugPrint('SpaceRepositoryImpl, space.name = ${space.name}, space.group = ${space.group}, drama.image = ${space.image},');
     return _spaceDatabase.spaceDao.insertSpace(space: space);
   }
 
@@ -78,7 +76,6 @@ class SpaceRepositoryImpl extends SpaceRepository implements Disposable {
 
   @override
   Future<void> deleteSpace({required int id}) {
-    debugPrint('SpaceRepositoryImpl, deleteDrama() , id = $id');
     return _spaceDatabase.spaceDao.deleteSpace(id);
   }
 

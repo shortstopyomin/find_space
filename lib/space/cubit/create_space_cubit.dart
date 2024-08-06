@@ -25,11 +25,9 @@ class CreateSpaceCubit extends Cubit<CreateSpaceState> {
   Future<void> addSpace({
     required Space space,
   }) async {
-    debugPrint('1. addSpace,  spaceName = $space,');
     final AddSpaceUseCase addSpaceUseCase = getIt();
     emit(const LoadingState());
     final rowId = await addSpaceUseCase(space);
-    debugPrint('2. addGroup,  rowId = $rowId');
     emit(const SpaceCreatedState().copyWith(groupId: space.group));
   }
 

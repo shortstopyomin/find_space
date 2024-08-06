@@ -41,7 +41,6 @@ class SpaceDetailCubit extends Cubit<SpaceDetailState> {
 
     spaceStream = spaceDetailUseCase(id)
       .listen((space) {
-        debugPrint('555 watchSpaceStream() space = ${space}');
         if (isClosed) return;
         emit((state as SpaceDetailLoaded).copyWith(
           space: space,
